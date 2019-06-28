@@ -48,12 +48,21 @@ android {
     productFlavors {
         playStore {
             applicationId myApplicationId
-            resValue "string", "myra_api_key", "Hello Mouli playstore"
+            buildConfigField "String", "my_api_key", my_api_key_playstore
         }
 
         dev {
             applicationId myApplicationId + ".dev"
-            resValue "string", "myra_api_key", "Hello Mouli Dev"
+            //resValue "string", "my_api_key", "Dev_ApiKey"
+            /*
+
+              The encrypted value for "Dev_ApiKey" = "HizcEtmOi}" - you can refer cpp code to know how I encrypt and decrypt keys
+
+              I'm getting "my_api_key_dev" from gradle.properties file which is available in my local machine and not in the git project,
+              please refer this url = "https://www.youtube.com/watch?v=Dhm9LPybnHE" to learn how I'm accessing the key
+
+            */
+            buildConfigField "String", "my_api_key", my_api_key_dev
         }
 
     }
