@@ -1,6 +1,7 @@
 package com.example.securingkeysinandroid.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.securingkeysinandroid.R
+import com.example.securingkeysinandroid.ui.trails.TrailsActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -109,6 +111,11 @@ class LoginActivity : AppCompatActivity() {
 
     private fun showLoginFailed(@StringRes errorString: Int) {
         Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startActivity(Intent(this, TrailsActivity::class.java))
     }
 }
 
